@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Förder-Check – Beraterbereich</title>
+<style>
+:root{--blue:#262251;--orange:#E67700;--ink:#13263B;--muted:#44566B;--line:#D3DDE8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F5F5FA;color:var(--ink);font:16px/1.5 "Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;padding:16px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:12px;box-shadow:0 10px 30px rgba(38,34,81,.12);padding:28px;max-width:380px;width:100%;display:flex;flex-direction:column;gap:14px}
+.card img{width:200px;height:auto}
+h1{margin:6px 0 0;font-size:24px;color:var(--blue)}
+p{margin:0;color:var(--muted);font-size:14.5px}
+input[type=password]{font:inherit;font-size:26px;letter-spacing:.5em;text-align:center;padding:10px;border:1px solid var(--line);border-radius:8px;width:100%}
+input[type=password]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px #ECEBF6}
+button{font:inherit;font-weight:700;background:var(--orange);color:#fff;border:0;border-radius:8px;padding:11px;cursor:pointer}
+button:disabled{opacity:.6;cursor:wait}
+label{font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.err{color:#B3261E;font-weight:600;font-size:14px;min-height:1.2em}
+</style>
+</head>
+<body>
+<form class="card" id="f" autocomplete="off">
+  <img src="data:image/png;base64,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" alt="CEB Bankshop AG" width="261" height="61">
+  <h1>Beraterbereich</h1>
+  <p>Förder-Check Wohneigentum – bitte Zugangscode eingeben.</p>
+  <input type="password" id="code" inputmode="numeric" maxlength="12" aria-label="Zugangscode" autofocus>
+  <label><input type="checkbox" id="merk"> Auf diesem Gerät merken</label>
+  <button id="go" type="submit">Öffnen</button>
+  <div class="err" id="err" role="alert"></div>
+</form>
+<script>
+let P=null;
+const d=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function open_(code){
+  if(!P){ const r=await fetch("inhalt.json",{cache:"no-store"}); if(!r.ok) throw new Error("fetch"); P=await r.json(); }
+  const base=await crypto.subtle.importKey("raw",new TextEncoder().encode(code),"PBKDF2",false,["deriveKey"]);
+  const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:d(P.s),iterations:P.n,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:d(P.i)},key,d(P.c));
+  return new TextDecoder().decode(pt);
+}
+async function tryCode(code,remember){
+  const html=await open_(code);
+  if(remember){try{localStorage.setItem("fc.berater.code",code);}catch(e){}}
+  document.open();document.write(html);document.close();
+}
+document.getElementById("f").addEventListener("submit",async e=>{
+  e.preventDefault();const b=document.getElementById("go"),err=document.getElementById("err");
+  b.disabled=true;b.textContent="Wird geöffnet …";err.textContent="";
+  try{await tryCode(document.getElementById("code").value.trim(),document.getElementById("merk").checked);}
+  catch(x){err.textContent=window.crypto&&crypto.subtle?"Code falsch – bitte erneut versuchen.":"Dieser Browser unterstützt die Entschlüsselung nicht (nur über https möglich).";b.disabled=false;b.textContent="Öffnen";}
+});
+try{const c=localStorage.getItem("fc.berater.code");if(c) tryCode(c,false).catch(()=>{try{localStorage.removeItem("fc.berater.code");}catch(e){}});}catch(e){}
+</script>
+</body>
+</html>
